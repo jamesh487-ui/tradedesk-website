@@ -1,32 +1,32 @@
-export default function HowItWorks() {
-  const steps = [
-    {
-      number: "01",
-      title: "Capture the job",
-      text: "Add new work quickly with customer details, job notes and location information stored in one place.",
-    },
-    {
-      number: "02",
-      title: "Request supplier quotes",
-      text: "Send parts lists to suppliers and compare pricing before preparing your customer quote.",
-    },
-    {
-      number: "03",
-      title: "Create the quote",
-      text: "Build professional quotes using accurate supplier pricing, labour and job details.",
-    },
-    {
-      number: "04",
-      title: "Schedule the work",
-      text: "Plan the job, organise the diary and keep the team aligned with clear scheduling.",
-    },
-    {
-      number: "05",
-      title: "Complete and invoice",
-      text: "Record the work completed, generate forms or certificates and send the invoice.",
-    },
-  ]
+const steps = [
+  {
+    number: "01",
+    title: "Capture the enquiry properly",
+    text: "Add the customer, property, contact detail, job notes and context once so the work starts in a connected record instead of scattered notes.",
+  },
+  {
+    number: "02",
+    title: "Price the job with better cost visibility",
+    text: "Request supplier pricing, compare responses, use inventory context and build the quote with clearer cost and margin awareness.",
+  },
+  {
+    number: "03",
+    title: "Send the quote and convert it into live work",
+    text: "Use professional quote pages, cleaner wording and customer accept or decline flow, then convert accepted work without rebuilding everything twice.",
+  },
+  {
+    number: "04",
+    title: "Plan the diary and complete the job",
+    text: "Schedule engineers, route the day more clearly, carry job checklists and keep customer, property and appliance detail connected during the work.",
+  },
+  {
+    number: "05",
+    title: "Invoice, remind and keep the record",
+    text: "Send invoices, follow up payments, keep completed records and maintain the history for future work, servicing and repeat business.",
+  },
+]
 
+export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-slate-50 py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -36,19 +36,20 @@ export default function HowItWorks() {
           </p>
 
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            A clearer workflow from enquiry to final invoice
+            A connected workflow from first enquiry to final payment
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            TradeDesk connects the full workflow of a trade job — from the
-            first enquiry through quoting, scheduling, compliance and
-            invoicing.
+            TradeDesk is built so the business can move through the full job
+            lifecycle without losing detail between systems. That means less
+            re-entry, fewer missed steps and a workflow that feels easier to
+            control as work builds up.
           </p>
         </div>
 
         <div className="relative mt-12">
           <div className="pointer-events-none absolute left-0 right-0 top-11 hidden lg:block">
-            <div className="mx-16 border-t border-slate-300"></div>
+            <div className="mx-16 border-t border-slate-300" />
           </div>
 
           <div className="grid gap-5 lg:grid-cols-5">
@@ -65,7 +66,7 @@ export default function HowItWorks() {
                     {step.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-slate-600 max-w-[22ch]">
+                  <p className="mt-3 max-w-[24ch] text-sm leading-7 text-slate-600">
                     {step.text}
                   </p>
                 </div>

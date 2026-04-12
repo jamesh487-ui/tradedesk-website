@@ -6,8 +6,20 @@ const initialForm = {
   fullName: "",
   email: "",
   businessName: "",
-  interestType: "both",
+  interestType: "software",
   message: "",
+}
+
+const interestTypeDatabaseValue = {
+  software: "software",
+  tester: "software",
+  updates: "software",
+}
+
+const interestTypeLabel = {
+  software: "Early access",
+  tester: "App testing with free setup and support",
+  updates: "Launch updates",
 }
 
 export default function CTA() {
@@ -45,6 +57,14 @@ export default function CTA() {
     const businessName = form.businessName.trim()
     const interestType = form.interestType
     const message = form.message.trim()
+    const databaseInterestType =
+      interestTypeDatabaseValue[interestType] ?? "software"
+    const enrichedMessage =
+      interestType === "software"
+        ? message || null
+        : [`Selected interest: ${interestTypeLabel[interestType]}`, message]
+            .filter(Boolean)
+            .join("\n\n")
 
     if (!fullName || !email || !interestType) {
       setStatus({
@@ -61,8 +81,8 @@ export default function CTA() {
         full_name: fullName,
         email,
         business_name: businessName || null,
-        interest_type: interestType,
-        message: message || null,
+        interest_type: databaseInterestType,
+        message: enrichedMessage,
       })
 
       if (error) throw error
@@ -72,7 +92,7 @@ export default function CTA() {
       setStatus({
         type: "success",
         message:
-          "Thanks — your interest has been registered. We’ll be in touch when TradeDesk is ready.",
+          "Thanks - your interest has been registered. We will be in touch when TradeDesk is ready.",
       })
     } catch (error) {
       console.error("SUBMIT ERROR:", error)
@@ -85,7 +105,7 @@ export default function CTA() {
         setStatus({
           type: "success",
           message:
-            "You're already on the early access list. We'll contact you when TradeDesk launches.",
+            "You're already on the list. We will contact you when TradeDesk opens early access.",
         })
       } else {
         setIsSuccess(false)
@@ -100,37 +120,67 @@ export default function CTA() {
   }
 
   return (
-    <section id="register" className="bg-slate-50 px-6 py-20">
-      <div className="mx-auto max-w-6xl rounded-[2rem] bg-slate-900 px-8 py-14 text-white shadow-2xl shadow-slate-300/30">
-        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+    <section id="register" className="bg-slate-50 px-4 py-14 sm:px-6 sm:py-20">
+      <div className="mx-auto max-w-6xl rounded-[2rem] bg-[#07162f] px-5 py-8 text-white shadow-2xl shadow-slate-300/30 sm:rounded-[2.2rem] sm:px-8 sm:py-14">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
               Early access
             </p>
 
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Register your interest in TradeDesk
+              Help shape TradeDesk before launch
             </h2>
 
-            <p className="mt-5 text-lg leading-8 text-slate-300">
-              TradeDesk is launching soon. Join the early access list to hear
-              about the software, optional admin support and launch updates.
+            <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+              Join the early access list if you want a cleaner way to run jobs,
+              customers, quotes, invoices and follow-ups from one place.
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3">
-                <div className="text-sm font-semibold text-white">Software</div>
-                <div className="mt-1 text-sm text-slate-300">
-                  Quotes, jobs, scheduling, records and invoicing in one connected platform.
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 px-4 py-4">
+                <div className="text-sm font-semibold text-white">
+                  For real trade workflow
+                </div>
+                <div className="mt-1 text-sm leading-6 text-slate-300">
+                  Built around jobs, money, suppliers, customers and records.
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-slate-700 bg-slate-800 px-4 py-3">
-                <div className="text-sm font-semibold text-white">Support</div>
-                <div className="mt-1 text-sm text-slate-300">
-                  Optional help with call handling, diary admin, paperwork and follow-ups.
+              <div className="rounded-2xl border border-slate-700 bg-slate-800 px-4 py-4">
+                <div className="text-sm font-semibold text-white">
+                  Join the tester list
+                </div>
+                <div className="mt-1 text-sm leading-6 text-slate-300">
+                  Testers get free setup and support while helping shape the app.
                 </div>
               </div>
+            </div>
+
+            <div className="mt-6 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => setForm((prev) => ({ ...prev, interestType: "software" }))}
+                className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
+                  form.interestType === "software"
+                    ? "bg-white text-slate-900"
+                    : "border border-slate-600 text-white hover:bg-slate-800"
+                }`}
+              >
+                Join early access
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setForm((prev) => ({ ...prev, interestType: "tester" }))}
+                className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
+                  form.interestType === "tester"
+                    ? "bg-cyan-300 text-slate-950"
+                    : "border border-slate-600 text-white hover:bg-slate-800"
+                }`}
+              >
+                Join tester list
+              </button>
             </div>
 
             <div className="mt-8 space-y-3 text-sm text-slate-300">
@@ -140,11 +190,11 @@ export default function CTA() {
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 text-cyan-300">•</span>
-                <p>Get updates as the platform develops.</p>
+                <p>Get updates as the product develops.</p>
               </div>
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 text-cyan-300">•</span>
-                <p>Built for trades, starting with plumbing and heating businesses.</p>
+                <p>Register as a tester if you want to try TradeDesk before wider release.</p>
               </div>
             </div>
           </div>
@@ -173,7 +223,7 @@ export default function CTA() {
                       : "translate-y-2 opacity-0"
                   }`}
                 >
-                  You’re on the list
+                  You're on the list
                 </h3>
 
                 <p
@@ -193,7 +243,8 @@ export default function CTA() {
                       : "translate-y-2 opacity-0"
                   }`}
                 >
-                  We’ll email you with TradeDesk updates and let you know when early access opens.
+                  We will email you when TradeDesk is ready for early access,
+                  product updates and tester invites.
                 </p>
 
                 <button
@@ -278,7 +329,7 @@ export default function CTA() {
                     htmlFor="interestType"
                     className="mb-2 block text-sm font-medium text-slate-200"
                   >
-                    I’m interested in
+                    I want to hear about
                   </label>
                   <select
                     id="interestType"
@@ -287,9 +338,9 @@ export default function CTA() {
                     onChange={updateField}
                     className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-cyan-400"
                   >
-                    <option value="software">Software</option>
-                    <option value="support">Admin support</option>
-                    <option value="both">Both</option>
+                    <option value="software">Early access</option>
+                    <option value="tester">App testing - free setup and support</option>
+                    <option value="updates">Launch updates</option>
                   </select>
                 </div>
 
@@ -307,7 +358,7 @@ export default function CTA() {
                     value={form.message}
                     onChange={updateField}
                     className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400"
-                    placeholder="Anything you’d like us to know?"
+                    placeholder="Tell us a bit about your business or what you would want to test."
                   />
                 </div>
 
@@ -316,13 +367,17 @@ export default function CTA() {
                   disabled={isSubmitting}
                   className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {isSubmitting ? "Submitting..." : "Register your interest"}
+                  {isSubmitting
+                    ? "Submitting..."
+                    : form.interestType === "tester"
+                      ? "Join tester list"
+                      : "Register interest"}
                 </button>
 
                 <p className="text-xs leading-relaxed text-slate-400">
                   By registering, you agree to be contacted about TradeDesk
-                  updates and early access. You can unsubscribe at any time. See
-                  our{" "}
+                  early access, tester invites and launch updates. You can
+                  unsubscribe at any time. See our{" "}
                   <Link to="/privacy" className="text-cyan-300 hover:underline">
                     Privacy Policy
                   </Link>

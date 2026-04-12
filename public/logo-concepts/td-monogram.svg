@@ -1,0 +1,13 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#F6F8FB"/>
+  <rect x="90" y="90" width="1020" height="620" rx="32" fill="white" stroke="#D9E0EA" stroke-width="2"/>
+  <rect x="150" y="170" width="220" height="220" rx="56" fill="#111A32"/>
+  <path d="M192 224H316V258H272V390H232V258H192V224Z" fill="white"/>
+  <path d="M272 224H314C384 224 432 267 432 332C432 397 384 440 314 440H272V404H308C357 404 393 376 393 332C393 288 357 260 308 260H272V224Z" fill="#53D0C2"/>
+  <path d="M272 284H307C350 284 378 303 378 332C378 361 350 380 307 380H272V344H301C326 344 338 340 338 332C338 324 326 320 301 320H272V284Z" fill="#111A32"/>
+  <text x="390" y="255" fill="#111A32" font-family="Inter, Arial, sans-serif" font-size="104" font-weight="700">TradeDesk</text>
+  <text x="392" y="315" fill="#18A67F" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6">SOFTWARE FOR BUSY TRADE BUSINESSES</text>
+  <text x="150" y="495" fill="#506078" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="500">Concept 1</text>
+  <text x="150" y="548" fill="#111A32" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700">TD Monogram Badge</text>
+  <text x="150" y="605" fill="#66758C" font-family="Inter, Arial, sans-serif" font-size="30">Cleanest app-icon route with a strong monogram and software-led feel.</text>
+</svg>

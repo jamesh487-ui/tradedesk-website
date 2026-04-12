@@ -3,3 +3,14 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes float-phone {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(1.5deg);
+  }
+}

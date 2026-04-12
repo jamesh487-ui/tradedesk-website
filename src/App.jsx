@@ -1,8 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import FeaturesPage from "./pages/FeaturesPage"
 import HowItWorksPage from "./pages/HowItWorksPage"
-import SupportPage from "./pages/SupportPage"
 import PricingPage from "./pages/PricingPage"
 import AboutPage from "./pages/AboutPage"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
@@ -19,7 +18,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/how-it-works" element={<HowItWorksPage />} />
-        <Route path="/support" element={<SupportPage />} />
+        <Route path="/support" element={<Navigate to="/features" replace />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

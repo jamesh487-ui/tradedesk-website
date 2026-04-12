@@ -2,34 +2,29 @@ import { useState } from "react"
 
 const faqs = [
   {
-    question: "When is TradeDesk launching?",
+    question: "Who is TradeDesk built for?",
     answer:
-      "TradeDesk is currently in pre-launch. You can register your interest now and we’ll keep you updated as early access becomes available.",
+      "TradeDesk is designed for UK sole traders and small trade businesses, especially plumbing, heating, gas, renewables and field-service style work where jobs, records, customers and money all need to stay connected.",
   },
   {
-    question: "Who is TradeDesk designed for?",
+    question: "Is TradeDesk just a quoting app or invoicing app?",
     answer:
-      "TradeDesk is being built for UK trade businesses that want a better way to manage quotes, jobs, scheduling, paperwork and invoicing. The platform is launching first for plumbing and heating businesses.",
+      "No. TradeDesk is built as a connected operating system for the wider business. Quotes, invoices, customers, properties, supplier pricing, reminders, calls, appliances and job records are designed to work together.",
   },
   {
-    question: "Is admin support optional?",
+    question: "Can I move customer data in from older systems?",
     answer:
-      "Yes. TradeDesk is designed so you can use the software on its own or choose a package that also includes admin support.",
+      "Yes. TradeDesk is being built to support customer CSV import so businesses can migrate customer records more easily instead of starting from scratch.",
   },
   {
-    question: "What kind of admin support will be available?",
+    question: "Will it support forms, certificates and digital records?",
     answer:
-      "Support is intended to cover areas such as call handling, diary management, quote follow-ups, paperwork, customer communication and other back-office tasks.",
+      "Yes. TradeDesk is being shaped to support real trade paperwork and connected digital records, including certificates, service records, job forms and completed compliance-related records as part of the wider workflow.",
   },
   {
-    question: "Will there be a free trial?",
+    question: "Can I volunteer to test the app?",
     answer:
-      "Yes. Early users will be able to try TradeDesk before committing to a full package.",
-  },
-  {
-    question: "Can I register interest before launch?",
-    answer:
-      "Yes. The early access form lets you register interest now so you can hear about launch updates, software access and admin support availability.",
+      "Yes. If you want to test TradeDesk when early access opens, register your interest and choose app testing in the form.",
   },
 ]
 
@@ -45,15 +40,16 @@ export default function FAQ() {
       <div className="mx-auto max-w-6xl px-6">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700">
-            FAQ
+            Common questions
           </p>
 
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Common questions about TradeDesk
+            The important questions businesses ask before switching systems
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            A few quick answers about the platform, the support offer and early access.
+            TradeDesk is aimed at businesses that want better control, cleaner
+            workflow and less reliance on disconnected systems.
           </p>
         </div>
 
@@ -92,7 +88,7 @@ export default function FAQ() {
                 >
                   <div className="overflow-hidden">
                     <div className="border-t border-slate-200 px-6 py-5">
-                      <p className="text-sm leading-6 text-slate-600">
+                      <p className="text-sm leading-7 text-slate-600">
                         {item.answer}
                       </p>
                     </div>

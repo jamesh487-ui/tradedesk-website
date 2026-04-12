@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TradeDesk Logo Concepts</title>
+    <style>
+      :root {
+        --bg: #f3f6fb;
+        --card: #ffffff;
+        --text: #111a32;
+        --muted: #64748b;
+        --border: #d9e0ea;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, Arial, sans-serif;
+        background: linear-gradient(180deg, #eef4fb 0%, #f8fafc 100%);
+        color: var(--text);
+      }
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 48px 24px 64px;
+      }
+      h1 {
+        margin: 0 0 10px;
+        font-size: 42px;
+      }
+      p.lead {
+        margin: 0 0 32px;
+        color: var(--muted);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+      .grid {
+        display: grid;
+        gap: 24px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 18px;
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.05);
+      }
+      .card img {
+        width: 100%;
+        display: block;
+        border-radius: 18px;
+      }
+      .meta {
+        margin-top: 14px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (min-width: 900px) {
+        .grid { grid-template-columns: repeat(3, 1fr); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>TradeDesk Logo Concepts</h1>
+      <p class="lead">Three directions to compare: an app-first monogram, a workflow-led product mark, and a more established wordmark-plus-badge direction.</p>
+      <div class="grid">
+        <div class="card">
+          <img src="./td-monogram.svg" alt="TradeDesk TD monogram concept" />
+          <div class="meta">Concept 1: strongest if you want a memorable app icon and simple brand system.</div>
+        </div>
+        <div class="card">
+          <img src="./workflow-mark.svg" alt="TradeDesk workflow mark concept" />
+          <div class="meta">Concept 2: leans into organisation, movement, and software workflow.</div>
+        </div>
+        <div class="card">
+          <img src="./wordmark-shield.svg" alt="TradeDesk wordmark and shield concept" />
+          <div class="meta">Concept 3: feels more established and service-led while still giving you a badge icon.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  </html>

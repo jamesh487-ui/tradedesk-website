@@ -1,0 +1,15 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#F6F8FB"/>
+  <rect x="90" y="90" width="1020" height="620" rx="32" fill="white" stroke="#D9E0EA" stroke-width="2"/>
+  <path d="M182 177H332C365 177 392 204 392 237V296C392 395 315 461 257 489C199 461 122 395 122 296V237C122 204 149 177 182 177Z" fill="#111A32"/>
+  <path d="M182 177H332C365 177 392 204 392 237V296C392 395 315 461 257 489C199 461 122 395 122 296V237C122 204 149 177 182 177Z" stroke="#1E2948" stroke-width="10"/>
+  <path d="M197 234H318V267H276V376H238V267H197V234Z" fill="white"/>
+  <path d="M290 234C338 234 370 267 370 311C370 355 338 388 290 388H255V355H286C314 355 331 338 331 311C331 284 314 267 286 267H255V234H290Z" fill="#4DD6C2"/>
+  <text x="455" y="255" fill="#111A32" font-family="Inter, Arial, sans-serif" font-size="104" font-weight="700">TradeDesk</text>
+  <text x="458" y="315" fill="#5E6E86" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="500">Built for jobs, quotes, scheduling and forms</text>
+  <rect x="458" y="367" width="248" height="54" rx="27" fill="#EAF6F3"/>
+  <text x="490" y="403" fill="#18A67F" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="4">TRUSTED PLATFORM</text>
+  <text x="150" y="535" fill="#506078" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="500">Concept 3</text>
+  <text x="150" y="588" fill="#111A32" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700">Wordmark + Shield</text>
+  <text x="150" y="645" fill="#66758C" font-family="Inter, Arial, sans-serif" font-size="30">Feels more established and service-led, with a badge that still works as an app icon.</text>
+</svg>

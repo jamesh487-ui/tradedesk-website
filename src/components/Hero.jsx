@@ -1,4 +1,21 @@
 import { Link } from "react-router-dom"
+import dashboardScreenshot from "../assets/screenshots/dashboard-phone-generated.png"
+
+const benefits = ["Save admin time", "Win work faster", "Get paid sooner"]
+const featurePills = [
+  "Jobs",
+  "Quotes",
+  "Invoices",
+  "Suppliers",
+  "Inventory",
+  "Reminders",
+]
+
+const mobilePoints = [
+  "Jobs & diary",
+  "Quotes & invoices",
+  "Suppliers & records",
+]
 
 export default function Hero() {
   function scrollToId(id) {
@@ -14,170 +31,152 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-to-b from-cyan-100 via-slate-50 to-white"
+      className="relative overflow-hidden bg-[#07162f] text-white"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:py-24">
-        <div className="min-w-0">
-          <div className="inline-flex rounded-full border border-cyan-200 bg-white px-4 py-1.5 text-sm font-medium text-cyan-900 shadow-sm">
-            Launching soon for UK trade businesses
-          </div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(54,130,199,0.34),transparent_30%),radial-gradient(circle_at_78%_10%,rgba(30,64,175,0.24),transparent_28%),linear-gradient(180deg,#07162f_0%,#0a1d3f_66%,#f8fafc_66%,#f8fafc_100%)] sm:bg-[radial-gradient(circle_at_20%_20%,rgba(54,130,199,0.34),transparent_30%),radial-gradient(circle_at_78%_10%,rgba(30,64,175,0.24),transparent_28%),linear-gradient(180deg,#07162f_0%,#0a1d3f_56%,#f8fafc_56%,#f8fafc_100%)]" />
+      <div className="absolute inset-x-0 top-0 h-24 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),transparent)]" />
 
-          <h1 className="mt-6 max-w-3xl text-5xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-6xl">
-            Software and support built to help trade businesses run better
-          </h1>
+      <MobileHero scrollToId={scrollToId} />
+      <DesktopHero scrollToId={scrollToId} />
+    </section>
+  )
+}
 
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            TradeDesk helps you manage quotes, jobs, scheduling, paperwork and
-            invoices in one place — with software built for trades and optional
-            admin support to help the business side run more smoothly.
+function MobileHero({ scrollToId }) {
+  return (
+    <div className="relative mx-auto px-4 pb-8 pt-6 sm:hidden">
+      <div className="inline-flex rounded-full border border-sky-300/25 bg-white/10 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-sky-100 shadow-sm backdrop-blur">
+        Connected trade software
+      </div>
+
+      <h1 className="mt-4 max-w-[18rem] text-4xl font-semibold leading-[0.98] tracking-tight text-white">
+        Run the whole job lifecycle in one system
+      </h1>
+
+      <div className="mt-5 grid grid-cols-[minmax(0,1fr)_8.25rem] items-start gap-3">
+        <div>
+          <p className="text-sm leading-6 text-slate-200">
+            Manage jobs, customers, quotes, invoices, suppliers and reminders
+            without jumping between separate apps.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <button
-              type="button"
-              onClick={() => scrollToId("register")}
-              className="rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5"
-            >
-              Register your interest
-            </button>
-
-            <Link
-              to="/features"
-              className="rounded-2xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5"
-            >
-              Explore features
-            </Link>
-          </div>
-
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 shadow-sm">
-              <div className="text-sm font-semibold text-slate-900">
-                TradeDesk software
+          <div className="mt-4 space-y-2">
+            {mobilePoints.map((point) => (
+              <div
+                key={point}
+                className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-xs font-semibold leading-5 text-slate-100"
+              >
+                {point}
               </div>
-              <div className="mt-1 text-sm text-slate-600">
-                Quotes, jobs, scheduling, records and invoicing in one connected platform.
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-cyan-200 bg-cyan-50 px-4 py-3 shadow-sm">
-              <div className="text-sm font-semibold text-slate-900">
-                Optional admin support
-              </div>
-              <div className="mt-1 text-sm text-slate-600">
-                Extra help with call handling, diary admin, paperwork, follow-ups and back-office tasks.
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 space-y-1 text-sm text-slate-500">
-            <p>TradeDesk is launching soon — join the early access list.</p>
-            <p>Built for trades, starting with plumbing and heating businesses.</p>
+            ))}
           </div>
         </div>
 
-        <div className="min-w-0">
-          <div className="mx-auto w-full max-w-2xl rounded-3xl border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-300/30">
-            <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-950">
-              <div className="flex items-center justify-between border-b border-slate-800 px-5 py-3 text-xs text-slate-400">
-                <span>TradeDesk overview</span>
-                <span>Software + support</span>
-              </div>
+        <div className="relative">
+          <div className="absolute inset-x-1 top-5 h-[75%] rounded-[3rem] bg-sky-400/20 blur-2xl" />
+          <PhoneImage className="relative max-w-[8.25rem]" />
+        </div>
+      </div>
 
-              <div className="grid gap-4 p-4 xl:grid-cols-[1.15fr_0.85fr]">
-                <div className="min-w-0 rounded-3xl bg-slate-900 p-4">
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <div className="min-w-0">
-                      <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">
-                        Dashboard
-                      </p>
-                      <h3 className="mt-1 text-lg font-semibold text-white">
-                        Today’s workload
-                      </h3>
-                    </div>
+      <div className="mt-5 grid grid-cols-2 gap-3">
+        <button
+          type="button"
+          onClick={() => scrollToId("register")}
+          className="rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-[#07162f] shadow-lg shadow-slate-950/20"
+        >
+          Register
+        </button>
 
-                    <div className="shrink-0 rounded-2xl bg-cyan-400/20 px-3 py-1 text-xs font-medium text-cyan-200">
-                      12 active jobs
-                    </div>
-                  </div>
+        <Link
+          to="/features"
+          className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-center text-sm font-semibold text-white"
+        >
+          Features
+        </Link>
+      </div>
+    </div>
+  )
+}
 
-                  <div className="grid gap-3 sm:grid-cols-3">
-                    {[
-                      ["Quotes", "18"],
-                      ["Jobs", "12"],
-                      ["Invoices", "6"],
-                    ].map(([label, value]) => (
-                      <div key={label} className="min-w-0 rounded-2xl bg-slate-800 p-3">
-                        <div className="text-xs text-slate-400">{label}</div>
-                        <div className="mt-2 text-2xl font-semibold text-white">
-                          {value}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+function DesktopHero({ scrollToId }) {
+  return (
+    <div className="relative mx-auto hidden max-w-6xl items-center gap-8 px-4 pb-12 pt-10 sm:grid sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:gap-14 lg:pb-20 lg:pt-16">
+      <div className="min-w-0">
+        <div className="inline-flex rounded-full border border-sky-300/25 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-sky-100 shadow-sm backdrop-blur">
+          Connected trade business software
+        </div>
 
-                  <div className="mt-4 rounded-3xl bg-slate-800 p-4">
-                    <div className="mb-3 text-sm font-medium text-white">
-                      Engineer diary
-                    </div>
+        <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-tight text-white sm:text-6xl">
+          Run the whole job lifecycle in one connected system
+        </h1>
 
-                    <div className="space-y-2">
-                      {[
-                        ["08:30", "Boiler service", "Reading"],
-                        ["11:00", "CP12", "Wokingham"],
-                        ["14:30", "Boiler quote visit", "Bracknell"],
-                      ].map(([time, title, place]) => (
-                        <div
-                          key={time + title}
-                          className="flex items-center justify-between gap-3 rounded-2xl bg-slate-900 px-3 py-2"
-                        >
-                          <div className="min-w-0">
-                            <div className="truncate text-sm font-medium text-white">
-                              {title}
-                            </div>
-                            <div className="truncate text-xs text-slate-400">{place}</div>
-                          </div>
-                          <div className="shrink-0 text-xs font-medium text-cyan-200">
-                            {time}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+        <p className="mt-5 max-w-2xl text-base leading-7 text-slate-200 sm:text-lg sm:leading-8">
+          TradeDesk helps sole traders and small businesses manage jobs,
+          customers, properties, quotes, invoices, suppliers, inventory,
+          reminders and records in one place.
+        </p>
 
-                <div className="min-w-0 space-y-4">
-                  <div className="rounded-3xl bg-white p-4">
-                    <div className="text-xs uppercase tracking-[0.2em] text-slate-400">
-                      Quote
-                    </div>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                      Combi boiler installation
-                    </h3>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {benefits.map((benefit) => (
+            <span
+              key={benefit}
+              className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-sm font-semibold text-white"
+            >
+              {benefit}
+            </span>
+          ))}
+        </div>
 
-                    <div className="mt-4 space-y-2">
-                      {[
-                        ["Boiler", "Vaillant ecoTEC Plus"],
-                        ["Filter", "Vaillant magnetic filter"],
-                        ["Controls", "Smart thermostat"],
-                      ].map(([label, value]) => (
-                        <div
-                          key={label}
-                          className="rounded-2xl bg-slate-100 px-3 py-2"
-                        >
-                          <div className="text-xs text-slate-500">{label}</div>
-                          <div className="text-sm font-medium text-slate-900">
-                            {value}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <button
+            type="button"
+            onClick={() => scrollToId("register")}
+            className="rounded-2xl bg-white px-6 py-3 text-sm font-semibold text-[#07162f] shadow-lg shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-sky-50"
+          >
+            Register interest
+          </button>
+
+          <Link
+            to="/features"
+            className="rounded-2xl border border-white/20 bg-white/10 px-6 py-3 text-center text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/15"
+          >
+            See features
+          </Link>
+        </div>
+
+        <div className="mt-7 grid grid-cols-2 gap-2 sm:max-w-xl sm:grid-cols-3">
+          {featurePills.map((feature) => (
+            <div
+              key={feature}
+              className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-slate-100 backdrop-blur"
+            >
+              {feature}
             </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="min-w-0">
+        <div className="relative mx-auto w-full max-w-[25rem] sm:max-w-[30rem]">
+          <div className="absolute inset-x-8 top-8 h-[78%] rounded-[3rem] bg-sky-400/18 blur-3xl" />
+
+          <div className="relative flex min-h-[25rem] items-start justify-center sm:min-h-[32rem]">
+            <PhoneImage className="max-w-[21rem] sm:max-w-[25rem]" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  )
+}
+
+function PhoneImage({ className }) {
+  return (
+    <div className="group relative z-10">
+      <img
+        src={dashboardScreenshot}
+        alt="TradeDesk mobile dashboard showing workload, reminders and quick actions"
+        className={`mx-auto block h-auto w-full drop-shadow-[0_36px_55px_rgba(2,6,23,0.35)] transition-transform duration-500 ease-out group-hover:-translate-y-2 group-hover:rotate-[1.25deg] ${className}`}
+      />
+    </div>
   )
 }

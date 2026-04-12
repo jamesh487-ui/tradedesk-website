@@ -13,8 +13,8 @@ export default function Contact() {
         </h1>
 
         <p className="mb-8 leading-relaxed text-slate-600">
-          If you have any questions about TradeDesk, early access, or the
-          optional admin support services, feel free to get in touch.
+          If you have any questions about TradeDesk, the product or early
+          access, feel free to get in touch.
         </p>
 
         <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
@@ -29,10 +29,10 @@ export default function Contact() {
           <p className="mb-2 text-slate-600">
             Email:{" "}
             <a
-              href="mailto:admin@tradedesksupport.co.uk"
+              href="mailto:admin@tradedeskuk.com"
               className="text-sky-600 hover:underline"
             >
-              admin@tradedesksupport.co.uk
+              admin@tradedeskuk.com
             </a>
           </p>
 

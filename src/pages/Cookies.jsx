@@ -151,7 +151,7 @@ export default function Cookies() {
             <p className="mt-3">
               TradeDesk Support
               <br />
-              Email: admin@tradedesksupport.co.uk
+            Email: admin@tradedeskuk.com
             </p>
           </section>
         </div>

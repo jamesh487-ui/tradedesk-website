@@ -1,0 +1,21 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#F6F8FB"/>
+  <rect x="90" y="90" width="1020" height="620" rx="32" fill="white" stroke="#D9E0EA" stroke-width="2"/>
+  <rect x="140" y="180" width="210" height="150" rx="34" fill="#111A32"/>
+  <rect x="180" y="220" width="52" height="28" rx="14" fill="#4DD6C2"/>
+  <rect x="248" y="220" width="62" height="28" rx="14" fill="#E8EEF5"/>
+  <path d="M180 284H258C289 284 314 307 314 338C314 370 289 394 258 394H180V284Z" fill="#4DD6C2"/>
+  <path d="M258 284C289 284 314 307 314 338C314 370 289 394 258 394H225V284H258Z" fill="white"/>
+  <path d="M364 255H466" stroke="#18A67F" stroke-width="22" stroke-linecap="round"/>
+  <path d="M466 255L436 227" stroke="#18A67F" stroke-width="22" stroke-linecap="round"/>
+  <path d="M466 255L436 283" stroke="#18A67F" stroke-width="22" stroke-linecap="round"/>
+  <rect x="488" y="194" width="104" height="122" rx="24" fill="#EAF6F3" stroke="#BFEBDD" stroke-width="2"/>
+  <path d="M520 227H560" stroke="#111A32" stroke-width="10" stroke-linecap="round"/>
+  <path d="M520 255H560" stroke="#111A32" stroke-width="10" stroke-linecap="round"/>
+  <path d="M520 283H548" stroke="#111A32" stroke-width="10" stroke-linecap="round"/>
+  <text x="635" y="255" fill="#111A32" font-family="Inter, Arial, sans-serif" font-size="104" font-weight="700">TradeDesk</text>
+  <text x="638" y="315" fill="#18A67F" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6">ORGANISED WORKFLOW FOR THE TRADE</text>
+  <text x="150" y="495" fill="#506078" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="500">Concept 2</text>
+  <text x="150" y="548" fill="#111A32" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="700">Workflow Mark</text>
+  <text x="150" y="605" fill="#66758C" font-family="Inter, Arial, sans-serif" font-size="30">Leans into jobs moving through a system rather than literal trade tools.</text>
+</svg>
