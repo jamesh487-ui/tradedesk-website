@@ -3,7 +3,6 @@ import Home from "./pages/Home"
 import FeaturesPage from "./pages/FeaturesPage"
 import HowItWorksPage from "./pages/HowItWorksPage"
 import PricingPage from "./pages/PricingPage"
-import AboutPage from "./pages/AboutPage"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
 import Terms from "./pages/Terms"
 import Cookies from "./pages/Cookies"
@@ -20,7 +19,7 @@ export default function App() {
         <Route path="/how-it-works" element={<HowItWorksPage />} />
         <Route path="/support" element={<Navigate to="/features" replace />} />
         <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/about" element={<Navigate to="/" replace />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/cookies" element={<Cookies />} />

@@ -30,15 +30,15 @@ const plans = [
       "Up to 3 users",
       "Up to 50 jobs per month",
       "50 AI drafts per month",
-      "Email and supplier workflows",
+      "Inbox, reminders and supplier tools",
     ],
     features: [
       "Everything in Free",
-      "TradeDesk comms and inbox",
-      "Supplier management, quotes and purchase orders",
+      "TradeDesk inbox and customer messages",
+      "Supplier management and purchase orders",
       "Diary slot finder",
       "Advanced checklists and checklist reports",
-      "Service reminders",
+      "Service and follow-up reminders",
       "Branded paperwork",
     ],
   },
@@ -55,13 +55,13 @@ const plans = [
     ],
     features: [
       "Everything in Starter",
-      "Forms and certificates",
+      "Advanced records and documents",
       "Smart Diagnostics",
       "Supplier AI price import",
       "Video transcription",
       "Smart auto scheduler",
       "Advanced reporting and KPIs",
-      "Public engineer tracking",
+      "Public team tracking",
     ],
     featured: true,
   },
@@ -97,13 +97,13 @@ export default function HomePlans() {
             </p>
 
             <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-slate-950 sm:text-5xl">
-              Pick the plan that fits the workload.
+              Choose a plan that best fits your business.
             </h2>
           </div>
 
           <p className="max-w-md text-sm leading-7 text-slate-600">
-            Current launch pricing follows the app setup plans, with usage based
-            on users, job volume, AI drafting and route planner runs.
+            Start with the core tools, then move up when you need more jobs,
+            more automation, more team access or a more advanced setup.
           </p>
         </div>
 

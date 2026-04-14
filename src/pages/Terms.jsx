@@ -1,3 +1,6 @@
+import Footer from "../components/Footer"
+import Header from "../components/Header"
+
 const sections = [
   {
     title: "1. Who we are",
@@ -444,8 +447,10 @@ const sections = [
 
 export default function Terms() {
   return (
-    <main className="min-h-screen bg-white px-6 py-20">
-      <div className="mx-auto max-w-4xl">
+    <main className="min-h-screen bg-white">
+      <Header />
+
+      <div className="mx-auto max-w-4xl px-6 py-20">
         <h1 className="text-4xl font-semibold text-slate-900">
           Terms of Service
         </h1>
@@ -502,6 +507,7 @@ export default function Terms() {
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   )
 }

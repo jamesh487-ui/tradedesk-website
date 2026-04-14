@@ -1,13 +1,18 @@
+import Footer from "../components/Footer"
+import Header from "../components/Header"
+
 export default function Cookies() {
   return (
-    <main className="min-h-screen bg-white px-6 py-20">
-      <div className="mx-auto max-w-4xl">
+    <main className="min-h-screen bg-white">
+      <Header />
+
+      <div className="mx-auto max-w-4xl px-6 py-20">
         <h1 className="text-4xl font-semibold text-slate-900">
           Cookies Policy
         </h1>
 
         <p className="mt-4 text-sm text-slate-500">
-          Last updated: {new Date().getFullYear()}
+          Last updated: 14 April 2026
         </p>
 
         <div className="mt-10 space-y-8 leading-7 text-slate-600">
@@ -16,8 +21,8 @@ export default function Cookies() {
               Who we are
             </h2>
             <p className="mt-2">
-              This Cookies Policy explains how TradeDesk Support uses cookies and
-              similar technologies on tradedesksupport.co.uk.
+              This Cookies Policy explains how TradeDesk uses cookies and
+              similar technologies on tradedeskuk.com.
             </p>
           </section>
 
@@ -149,13 +154,14 @@ export default function Cookies() {
             </p>
 
             <p className="mt-3">
-              TradeDesk Support
+              TradeDesk UK
               <br />
             Email: admin@tradedeskuk.com
             </p>
           </section>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

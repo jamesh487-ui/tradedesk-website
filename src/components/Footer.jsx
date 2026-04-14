@@ -37,10 +37,6 @@ export default function Footer() {
             <h4 className="mb-3 font-medium text-white">Company</h4>
 
             <div className="flex flex-col gap-2 text-sm">
-              <Link to="/about" className="transition hover:text-white">
-                Why TradeDesk
-              </Link>
-
               <Link to="/contact" className="transition hover:text-white">
                 Contact
               </Link>
@@ -81,7 +77,7 @@ export default function Footer() {
         <div className="mt-10 flex flex-col justify-between gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 md:flex-row">
           <p>&copy; {new Date().getFullYear()} TradeDesk. All rights reserved.</p>
 
-          <p>Built for trade businesses, starting with plumbing and heating.</p>
+          <p>Built for trade and field-service businesses.</p>
         </div>
       </div>
     </footer>

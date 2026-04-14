@@ -1,11 +1,12 @@
 import fieldPhoneImage from "../assets/screenshots/field-phone.png"
 
 const bullets = [
-  "Book jobs from first enquiry",
-  "Keep customer and property records together",
-  "Create quotes, invoices and paperwork",
-  "Track suppliers, parts and purchase orders",
-  "Use reminders so follow-ups are not forgotten",
+  "Quickly raise jobs with auto scheduling",
+  "Stay more organised with customer details and job history in one place",
+  "Create quotes and invoices with automated tracking and reminders",
+  "Manage suppliers, track materials and create purchase orders",
+  "Automated reminders so follow-ups are never forgotten",
+  "Easily track profitability inside every job",
 ]
 
 export default function HomeBenefits() {
@@ -23,7 +24,7 @@ export default function HomeBenefits() {
 
           <div className="td-reveal td-reveal-delay">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-sky-700">
-              Built around the working day
+              Built around your working day
             </p>
 
             <h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-slate-950 sm:text-5xl">

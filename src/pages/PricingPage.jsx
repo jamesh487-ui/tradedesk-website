@@ -10,8 +10,8 @@ export default function PricingPage() {
       <Header />
       <PageIntro
         eyebrow="Pricing"
-        title="Clear pricing for a platform that grows with the business"
-        text="TradeDesk is designed for sole traders and growing trade teams that want cleaner workflow, better control and a more connected system as the workload builds."
+        title="Core plans first. Trade packs when you need them."
+        text="Start with the tools every trade business needs, then add specialist packs for forms, records and trade-specific tools when they are useful."
       />
       <Pricing />
       <CTA />

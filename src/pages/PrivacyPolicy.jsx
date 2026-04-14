@@ -1,3 +1,6 @@
+import Footer from "../components/Footer"
+import Header from "../components/Header"
+
 const sections = [
   {
     title: "1. Scope",
@@ -451,8 +454,10 @@ const sections = [
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-white px-6 py-20">
-      <div className="mx-auto max-w-4xl">
+    <main className="min-h-screen bg-white">
+      <Header />
+
+      <div className="mx-auto max-w-4xl px-6 py-20">
         <h1 className="text-4xl font-semibold text-slate-900">
           Privacy Policy
         </h1>
@@ -554,6 +559,7 @@ export default function PrivacyPolicy() {
           ))}
         </div>
       </div>
+      <Footer />
     </main>
   )
 }

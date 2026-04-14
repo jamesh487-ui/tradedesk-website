@@ -10,7 +10,6 @@ export default function Header() {
     { label: "Features", to: "/features" },
     { label: "How it works", to: "/how-it-works" },
     { label: "Pricing", to: "/pricing" },
-    { label: "Why TradeDesk", to: "/about" },
     { label: "Contact", to: "/contact" },
   ]
 
@@ -41,7 +40,8 @@ export default function Header() {
     "inline-flex h-11 items-center overflow-hidden rounded-xl bg-white px-3 shadow-sm ring-1 ring-slate-200/20"
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07162f]/95 text-white shadow-lg shadow-slate-950/10 backdrop-blur">
+    <>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#07162f]/95 text-white shadow-lg shadow-slate-950/10 backdrop-blur md:sticky">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
         {isHomePage ? (
           <button
@@ -162,5 +162,7 @@ export default function Header() {
         </div>
       ) : null}
     </header>
+    <div aria-hidden="true" className="h-[69px] md:hidden" />
+    </>
   )
 }

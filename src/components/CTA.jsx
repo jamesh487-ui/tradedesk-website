@@ -6,9 +6,18 @@ const initialForm = {
   fullName: "",
   email: "",
   businessName: "",
+  selectedPlan: "not_sure",
   interestType: "software",
   message: "",
 }
+
+const planOptions = [
+  { value: "not_sure", label: "Not sure yet" },
+  { value: "free", label: "Free" },
+  { value: "starter", label: "Starter" },
+  { value: "pro", label: "Pro" },
+  { value: "premium", label: "Premium" },
+]
 
 const interestTypeDatabaseValue = {
   software: "software",
@@ -22,6 +31,10 @@ const interestTypeLabel = {
   updates: "Launch updates",
 }
 
+const planLabel = Object.fromEntries(
+  planOptions.map((plan) => [plan.value, plan.label]),
+)
+
 export default function CTA() {
   const [form, setForm] = useState(initialForm)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -33,6 +46,27 @@ export default function CTA() {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
   }
+
+  useEffect(() => {
+    function handlePlanInterest(event) {
+      const selectedPlan = String(event.detail?.plan || "").trim()
+      if (!planLabel[selectedPlan]) return
+
+      setForm((prev) => ({
+        ...prev,
+        selectedPlan,
+        interestType: "software",
+      }))
+      setIsSuccess(false)
+      setAnimateSuccess(false)
+      setStatus({ type: "", message: "" })
+    }
+
+    window.addEventListener("tradedesk:plan-interest", handlePlanInterest)
+    return () => {
+      window.removeEventListener("tradedesk:plan-interest", handlePlanInterest)
+    }
+  }, [])
 
   useEffect(() => {
     if (isSuccess) {
@@ -55,16 +89,22 @@ export default function CTA() {
     const fullName = form.fullName.trim()
     const email = form.email.trim()
     const businessName = form.businessName.trim()
+    const selectedPlan = form.selectedPlan
     const interestType = form.interestType
     const message = form.message.trim()
     const databaseInterestType =
       interestTypeDatabaseValue[interestType] ?? "software"
+    const selectedPlanLabel = planLabel[selectedPlan] ?? "Not sure yet"
     const enrichedMessage =
-      interestType === "software"
-        ? message || null
-        : [`Selected interest: ${interestTypeLabel[interestType]}`, message]
-            .filter(Boolean)
-            .join("\n\n")
+      [
+        `Selected plan: ${selectedPlanLabel}`,
+        interestType === "software"
+          ? null
+          : `Selected interest: ${interestTypeLabel[interestType]}`,
+        message,
+      ]
+        .filter(Boolean)
+        .join("\n\n")
 
     if (!fullName || !email || !interestType) {
       setStatus({
@@ -77,15 +117,61 @@ export default function CTA() {
     try {
       setIsSubmitting(true)
 
-      const { error } = await supabase.from("interest_registrations").insert({
+      const payload = {
         full_name: fullName,
         email,
         business_name: businessName || null,
         interest_type: databaseInterestType,
-        message: enrichedMessage,
-      })
+        selected_plan: selectedPlan,
+        selected_plan_label: selectedPlanLabel,
+        message: enrichedMessage || null,
+      }
 
-      if (error) throw error
+      const { data, error } = await supabase.functions.invoke(
+        "interest-registration",
+        { body: payload },
+      )
+
+      if (error) {
+        let functionErrorMessage = error.message || "Could not register your interest."
+        if (error.context && typeof error.context.json === "function") {
+          try {
+            const errorBody = await error.context.clone().json()
+            functionErrorMessage =
+              errorBody?.error ||
+              errorBody?.message ||
+              functionErrorMessage
+          } catch {
+            // Keep the Supabase error message if the response body is not JSON.
+          }
+        }
+
+        const message = String(functionErrorMessage || "").toLowerCase()
+        const functionMissing =
+          message.includes("failed to send a request") ||
+          message.includes("not found") ||
+          message.includes("404")
+
+        if (!functionMissing) {
+          throw new Error(functionErrorMessage)
+        }
+
+        const { error: insertError } = await supabase
+          .from("interest_registrations")
+          .insert({
+            full_name: fullName,
+            email,
+            business_name: businessName || null,
+            interest_type: databaseInterestType,
+            selected_plan: selectedPlan,
+            selected_plan_label: selectedPlanLabel,
+            message: enrichedMessage || null,
+          })
+
+        if (insertError) throw insertError
+      } else if (data && data.ok === false) {
+        throw new Error(data.error || "Could not register your interest.")
+      }
 
       setForm(initialForm)
       setIsSuccess(true)
@@ -133,8 +219,9 @@ export default function CTA() {
             </h2>
 
             <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              We are inviting a small number of plumbing and heating businesses
-              to try the app, give feedback and help shape the launch version.
+              We are inviting a small number of trade and field-service
+              businesses to try the app, give feedback and help shape the
+              launch version.
             </p>
 
             <div className="mt-6 grid gap-3 text-sm text-slate-200 sm:grid-cols-3">
@@ -179,8 +266,9 @@ export default function CTA() {
             </div>
 
             <p className="mt-6 max-w-xl text-sm leading-7 text-slate-400">
-              Testing is focused on plumbing and heating first so we can get the
-              core workflow right before opening TradeDesk to more trades.
+              Early testing is open to trade businesses that want to help shape
+              a more organised way to manage jobs, customers, quotes and
+              invoices.
             </p>
           </div>
 
@@ -307,6 +395,28 @@ export default function CTA() {
                     className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400"
                     placeholder="Business name"
                   />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="selectedPlan"
+                    className="mb-2 block text-sm font-medium text-slate-200"
+                  >
+                    Plan you are interested in
+                  </label>
+                  <select
+                    id="selectedPlan"
+                    name="selectedPlan"
+                    value={form.selectedPlan}
+                    onChange={updateField}
+                    className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-cyan-400"
+                  >
+                    {planOptions.map((plan) => (
+                      <option key={plan.value} value={plan.value}>
+                        {plan.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>

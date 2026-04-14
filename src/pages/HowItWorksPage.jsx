@@ -2,7 +2,6 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import PageIntro from "../components/PageIntro"
 import HowItWorks from "../components/HowItWorks"
-import ProductPreview from "../components/ProductPreview"
 import CTA from "../components/CTA"
 
 export default function HowItWorksPage() {
@@ -11,11 +10,10 @@ export default function HowItWorksPage() {
       <Header />
       <PageIntro
         eyebrow="How It Works"
-        title="See how TradeDesk connects the full job lifecycle"
-        text="From first enquiry to final payment, TradeDesk is designed to keep the workflow joined up so work, records, reminders, supplier pricing and customer detail stay easier to control."
+        title="Watch TradeDesk in action."
+        text="Short walkthroughs showing the main setup, job, diary, checklist, supplier quote and invoicing flows inside the app."
       />
       <HowItWorks />
-      <ProductPreview />
       <CTA />
       <Footer />
     </main>

@@ -22,9 +22,7 @@ export default function Contact() {
             Contact details
           </h2>
 
-          <p className="mb-2 text-slate-600">
-            TradeDesk Support
-          </p>
+          <p className="mb-2 text-slate-600">TradeDesk UK</p>
 
           <p className="mb-2 text-slate-600">
             Email:{" "}
