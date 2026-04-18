@@ -32,7 +32,7 @@ const plans = [
       "Invoices",
       "Basic diary",
       "Basic checklists",
-      "Customer portal",
+      "Secure quote and invoice links",
       "Inventory management",
       "Basic reporting",
     ],
@@ -58,6 +58,7 @@ const plans = [
     features: [
       "Everything in Free",
       "Inbox and customer communications",
+      "Customer portal",
       "Supplier quotes and purchase orders",
       "Advanced checklists and checklist reports",
       "Diary slot finder",

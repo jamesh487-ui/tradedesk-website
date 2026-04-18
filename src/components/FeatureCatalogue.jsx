@@ -69,7 +69,8 @@ const workflowSections = [
       { label: "Customer management", plan: "Free", text: "Manage names, contacts, addresses and job history." },
       { label: "Multiple sites", plan: "Free", text: "Support customers with more than one address, site or property." },
       { label: "Asset records", plan: "Starter+", text: "Store equipment, asset and installation records." },
-      { label: "Customer portal", plan: "Free", text: "Share public customer links for quotes, invoices and job information." },
+      { label: "Secure document links", plan: "Free", text: "Send quote and invoice links without exposing a wider customer hub." },
+      { label: "Customer portal", plan: "Starter+", text: "Give customers a shared hub for jobs, documents, messages and appointment history." },
     ],
   },
   {
@@ -167,7 +168,8 @@ const workflowSections = [
 const availability = [
   { feature: "Customer, site and contact management", plans: allPlans },
   { feature: "Jobs, diary, quotes and invoices", plans: allPlans },
-  { feature: "Customer portal links", plans: allPlans },
+  { feature: "Secure quote and invoice links", plans: allPlans },
+  { feature: "Customer portal", plans: starterPlus },
   { feature: "Manual diary scheduling", plans: allPlans },
   { feature: "Basic checklists", plans: allPlans },
   { feature: "Inventory management", plans: allPlans },

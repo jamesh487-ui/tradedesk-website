@@ -17,7 +17,7 @@ const plans = [
       "Invoice management",
       "Basic diary",
       "Basic checklists",
-      "Customer portal",
+      "Secure quote and invoice links",
       "Inventory management",
     ],
   },
@@ -35,6 +35,7 @@ const plans = [
     features: [
       "Everything in Free",
       "TradeDesk inbox and customer messages",
+      "Customer portal",
       "Supplier management and purchase orders",
       "Diary slot finder",
       "Advanced checklists and checklist reports",
