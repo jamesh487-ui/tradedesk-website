@@ -96,7 +96,7 @@ const plans = [
       "Smart auto scheduler",
       "Job profit tracking",
       "Advanced reporting",
-      "Public team tracking",
+      "Customer job tracking links",
     ],
     accent: "cyan",
     cta: "Register interest",

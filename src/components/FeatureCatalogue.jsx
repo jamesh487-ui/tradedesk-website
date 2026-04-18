@@ -190,7 +190,7 @@ const availability = [
   { feature: "Video transcription and summaries", plans: proPlus },
   { feature: "Job profit tracking", plans: proPlus },
   { feature: "Advanced reporting and KPIs", plans: proPlus },
-  { feature: "Route planner and public team tracking", plans: proPlus },
+  { feature: "Route planner and customer job tracking links", plans: proPlus },
   { feature: "Advanced route planner", plans: premiumOnly },
   { feature: "Priority setup and support", plans: premiumOnly },
 ]

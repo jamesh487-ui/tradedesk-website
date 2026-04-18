@@ -68,7 +68,7 @@ const plans = [
       "Smart auto scheduler",
       "Job profit tracking",
       "Advanced reporting and KPIs",
-      "Public team tracking",
+      "Customer job tracking links",
     ],
     featured: true,
   },
