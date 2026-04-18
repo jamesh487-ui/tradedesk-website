@@ -60,7 +60,7 @@ export default function SmartDiagnostics() {
 
           <p className="mt-4 text-base leading-7 text-slate-500">
             It combines the details you enter with appliance recognition and
-            AI-assisted analysis to suggest the most likely cause, the checks to
+            Smart analysis to suggest the most likely cause, the checks to
             carry out next and practical repair options. Where available, it
             can also pull through key appliance details like manufacturer,
             model, GC number and output.

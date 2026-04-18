@@ -149,9 +149,9 @@ const workflowSections = [
     ],
   },
   {
-    eyebrow: "AI & Reporting",
+    eyebrow: "Smart tools & reporting",
     title: "Spend less time typing, chasing and checking.",
-    text: "Use AI-assisted tools for faster drafts, supplier quote imports, video summaries and reporting that helps you spot what needs attention.",
+    text: "Use smart tools for faster drafts, supplier quote imports, video summaries and reporting that helps you spot what needs attention.",
     tabletImage: aiReportingTabletScreenshot,
     phoneImage: aiSupplierPhoneScreenshot,
     reverse: false,
@@ -161,8 +161,8 @@ const workflowSections = [
     phonePosition: "-bottom-7 -right-1 sm:-right-4 lg:-right-8",
     bullets: [
       { label: "Message drafting", plan: "Free+", text: "Create customer-facing message drafts faster, then review and send when ready." },
-      { label: "Smart AI usage", plan: "Pro+", text: "Pro includes 40 smart AI runs per month; Premium includes 75." },
-      { label: "Smart imports", plan: "Pro+", text: "Use AI to read supplier quotes and reduce manual line-item entry." },
+      { label: "Smart usage", plan: "Pro+", text: "Pro includes 40 shared Smart tool runs per month; Premium includes 75." },
+      { label: "Smart imports", plan: "Pro+", text: "Read supplier quotes faster and reduce manual line-item entry." },
       { label: "Video summaries", plan: "Pro+", text: "Turn job videos into written notes, summaries and follow-up actions." },
       { label: "KPIs & reports", plan: "Pro+", text: "Track quote conversion, paid rate, outstanding balances and overdue work." },
     ],
@@ -176,10 +176,11 @@ const availability = [
   { feature: "Deposits and staged invoices", plans: allPlans },
   { feature: "Manual diary scheduling", plans: allPlans },
   { feature: "Basic checklists", plans: allPlans },
-  { feature: "AI message drafting", plans: allPlans },
+  { feature: "Smart message drafting", plans: allPlans },
   { feature: "Inventory management", plans: allPlans },
   { feature: "Basic reporting", plans: allPlans },
   { feature: "Trade add-ons", values: { Free: "£15/mo", Starter: "£10/mo", Pro: "£5/mo", Premium: "Included" } },
+  { feature: "Trade pack Smart Diagnostics allowance", values: { Free: "20/mo with pack", Starter: "30/mo with pack", Pro: "Uses Smart tool cap", Premium: "Uses Smart tool cap" } },
   { feature: "Customer portal", plans: starterPlus },
   { feature: "Online booking", plans: starterPlus },
   { feature: "Branded paperwork", plans: starterPlus },
@@ -189,13 +190,13 @@ const availability = [
   { feature: "Diary slot finder and multi-visit jobs", plans: starterPlus },
   { feature: "Smart supplier quote import", plans: proPlus },
   { feature: "Video transcription and summaries", plans: proPlus },
-  { feature: "Smart AI usage cap", values: { Free: "—", Starter: "—", Pro: "40/mo", Premium: "75/mo" } },
+  { feature: "Shared Smart tool usage cap", values: { Free: "—", Starter: "—", Pro: "40/mo", Premium: "75/mo" } },
   { feature: "Job profit tracking", plans: proPlus },
   { feature: "Advanced reporting and KPIs", plans: proPlus },
   { feature: "Route planner and customer job tracking links", plans: proPlus },
   { feature: "Route planner usage cap", values: { Free: "—", Starter: "—", Pro: "10/mo", Premium: "25/mo" } },
   { feature: "Advanced route planner", plans: premiumOnly },
-  { feature: "Priority setup and support", plans: premiumOnly },
+  { feature: "Guided setup and priority support", plans: premiumOnly },
 ]
 
 const addOns = [
@@ -204,11 +205,11 @@ const addOns = [
     status: "Available",
     gradient: "from-sky-700 via-cyan-500 to-amber-300",
     image: plumbingHeatingAddOnImage,
-    summary: "Specialist records, certificates and smart tools for plumbing and heating work.",
+    summary: "Specialist records, certificates and Smart Diagnostics for plumbing and heating work.",
     includes: [
       "Gas safety, commissioning and service certificate packs",
       "Heating and plumbing forms, warning notices and job records",
-      "Smart Diagnostics for common heating and hot water faults",
+      "Smart Diagnostics with 20 runs on Free packs, 30 on Starter packs, then shared Pro and Premium Smart tool allowances",
       "Trade calculators for heating, pipework and materials",
     ],
   },
@@ -464,7 +465,8 @@ function AddOnsAndIntegrations() {
           <p className="max-w-md text-sm leading-7 text-slate-600">
             Keep the core app clean for every trade. Add a trade pack when you
             need specialist records, calculators, handover templates and
-            trade-specific smart tools.
+            trade-specific smart tools. Free and Starter packs include a
+            smaller allowance for pack-specific smart tools.
           </p>
         </div>
 
@@ -741,7 +743,7 @@ export default function FeatureCatalogue() {
             </div>
 
             <p className="max-w-md text-sm leading-7 text-slate-300">
-              Every plan includes the core tools to manage customers, jobs, diary, quotes and invoices. Higher plans add more automation, smarter scheduling, supplier tools, AI features and reporting depth.
+              Every plan includes the core tools to manage customers, jobs, diary, quotes and invoices. Higher plans add more automation, smarter scheduling, supplier tools, smart features and reporting depth.
             </p>
           </div>
 

@@ -21,7 +21,7 @@ const plans = [
     includes: [
       "1 user",
       "Up to 20 jobs per calendar month",
-      "20 AI drafts per month",
+      "20 Smart drafts per month",
       "Core jobs, quotes, invoices and diary",
       "Deposits and staged invoices",
       "Manual scheduling",
@@ -54,7 +54,7 @@ const plans = [
     includes: [
       "Up to 3 users",
       "Up to 50 jobs per calendar month",
-      "50 AI drafts per month",
+      "50 Smart drafts per month",
       "Supplier tools and advanced checklists",
       "Trade packs discounted to £10/mo",
     ],
@@ -81,18 +81,18 @@ const plans = [
     cadence: "/mo",
     costPerJob: "33p per included job",
     summary:
-      "For growing teams that want smarter scheduling, AI-assisted tools, reporting and deeper operational control.",
+      "For growing teams that want smarter scheduling, smart tools, reporting and deeper operational control.",
     includes: [
       "Unlimited users",
       "Up to 150 jobs per calendar month",
-      "250 AI drafts per month",
-      "40 smart AI runs per month",
+      "250 Smart drafts per month",
+      "40 shared Smart tool runs per month",
       "10 route planner runs per month",
       "Trade packs discounted to £5/mo",
     ],
     features: [
       "Everything in Starter",
-      "Supplier AI price import",
+      "Smart price match",
       "Video transcription",
       "Smart auto scheduler",
       "Job profit tracking",
@@ -114,8 +114,8 @@ const plans = [
     includes: [
       "Unlimited users",
       "Up to 350 jobs per calendar month",
-      "Unlimited AI drafts per month",
-      "75 smart AI runs per month",
+      "Unlimited Smart drafts per month",
+      "75 shared Smart tool runs per month",
       "25 route planner runs per month",
       "Trade packs included",
     ],
@@ -123,7 +123,8 @@ const plans = [
       "Everything in Pro",
       "Higher monthly caps",
       "Advanced route planner",
-      "Priority setup and support",
+      "Guided setup and priority support",
+      "Onboarding help for team setup, payments, diary settings and trade packs",
       "Trade packs included",
       "Designed for higher-volume businesses",
     ],
@@ -139,7 +140,7 @@ const planHighlights = [
   },
   {
     title: "Add trade packs when needed",
-    text: "Trade packs add specialist records, forms and trade-specific tools without forcing every business onto the same setup.",
+    text: "Trade packs add specialist records, forms and trade-specific tools. Free and Starter packs include a smaller allowance for pack-specific smart tools.",
   },
   {
     title: "Better plan, lower pack cost",
@@ -152,7 +153,7 @@ const addOns = [
     title: "Plumbing & Heating",
     status: "Available first",
     image: plumbingHeatingAddOnImage,
-    text: "Gas, heating and service record tools for businesses that need specialist paperwork and diagnostics.",
+    text: "Gas, heating and service records, warning notices and Smart Diagnostics. Free packs include 20 diagnostics runs, Starter packs include 30, and Pro or Premium use the plan's shared Smart tool allowance.",
   },
   {
     title: "Electrical",
@@ -417,8 +418,9 @@ export default function Pricing() {
               </h3>
               <p className="mt-4 text-base leading-8 text-slate-600">
                 Trade packs are optional add-ons for forms, records and
-                specialist tools. The higher your core plan, the lower the pack
-                price.
+                specialist tools. Free and Starter packs include a small
+                allowance for pack-specific smart tools. Pro and Premium use
+                the plan's shared Smart tool allowance.
               </p>
             </div>
 
@@ -466,6 +468,45 @@ export default function Pricing() {
           </div>
         </div>
 
+        <div className="mt-10 rounded-[1.75rem] border border-cyan-200 bg-cyan-50/60 p-6 shadow-sm sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700">
+                Premium setup
+              </p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">
+                Guided setup and priority support
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">
+                Premium teams get help setting up the workspace properly before
+                rollout, plus priority support when something blocks the day.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                "Workspace, users and permissions",
+                "Quote, invoice and payment settings",
+                "Diary hours, job types and customer messaging",
+                "Trade packs, forms and core workflows",
+                "Import templates and guided import support",
+                "Priority response for access, payment and workflow blockers",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-cyan-100 bg-white px-4 py-4 text-sm font-medium text-slate-700 shadow-sm"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="mt-5 text-xs leading-6 text-slate-500">
+            Large or messy data migrations can be quoted separately.
+          </p>
+        </div>
+
         <div className="mt-10 rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
           <h3 className="text-xl font-semibold text-slate-900">
             What all plans are aiming to give you
@@ -489,7 +530,7 @@ export default function Pricing() {
 
           <p className="mt-6 text-sm leading-7 text-slate-500">
             All plans are billed monthly. Upgrade when you need more users,
-            more jobs, more AI usage or more automation. Trade packs are
+            more jobs, more smart usage or more automation. Trade packs are
             optional add-ons unless they are included in your plan.
           </p>
         </div>

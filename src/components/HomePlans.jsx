@@ -7,7 +7,7 @@ const plans = [
     limits: [
       "1 user",
       "Up to 20 jobs per calendar month",
-      "20 AI drafts per month",
+      "20 Smart drafts per month",
       "Core jobs, quotes, invoices and diary",
       "Deposits and staged invoices",
       "Manual scheduling",
@@ -32,7 +32,7 @@ const plans = [
     limits: [
       "Up to 3 users",
       "Up to 50 jobs per calendar month",
-      "50 AI drafts per month",
+      "50 Smart drafts per month",
       "Inbox, reminders and supplier tools",
     ],
     features: [
@@ -56,15 +56,15 @@ const plans = [
     limits: [
       "Unlimited users",
       "Up to 150 jobs per calendar month",
-      "250 AI drafts per month",
-      "40 smart AI runs per month",
+      "250 Smart drafts per month",
+      "40 shared Smart tool runs per month",
       "10 route planner runs per month",
     ],
     features: [
       "Everything in Starter",
       "Advanced records and documents",
-      "Smart Diagnostics",
-      "Supplier AI price import",
+      "Shared Smart tool allowance",
+      "Smart price match",
       "Video transcription",
       "Smart auto scheduler",
       "Job profit tracking",
@@ -81,8 +81,8 @@ const plans = [
     limits: [
       "Unlimited users",
       "Up to 350 jobs per calendar month",
-      "Unlimited AI drafts per month",
-      "75 smart AI runs per month",
+      "Unlimited Smart drafts per month",
+      "75 shared Smart tool runs per month",
       "25 route planner runs per month",
     ],
     features: [
