@@ -151,7 +151,7 @@ const planHighlights = [
 const addOns = [
   {
     title: "Plumbing & Heating",
-    status: "Available first",
+    status: "Coming soon",
     image: plumbingHeatingAddOnImage,
     text: "Gas, heating and service records, warning notices and Plumbing & Heating Smart Diagnostics. Diagnostics runs are separate from the shared Smart tool allowance: Free includes 10, Starter 20, Pro 30 and Premium 40 per month.",
   },

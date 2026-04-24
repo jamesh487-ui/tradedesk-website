@@ -199,7 +199,7 @@ const availability = [
 const addOns = [
   {
     title: "Plumbing & Heating",
-    status: "Available",
+    status: "Coming soon",
     gradient: "from-sky-700 via-cyan-500 to-amber-300",
     image: plumbingHeatingAddOnImage,
     summary: "Specialist records, certificates and Smart Diagnostics for plumbing and heating work.",
