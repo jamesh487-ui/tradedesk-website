@@ -22,9 +22,9 @@ const faqs = [
       "Yes. TradeDesk is being shaped to support real trade paperwork and connected digital records, including certificates, service records, job forms and completed compliance-related records as part of the wider workflow.",
   },
   {
-    question: "Can I volunteer to test the app?",
+    question: "How do I get access first?",
     answer:
-      "Yes. If you want to test TradeDesk when early access opens, register your interest and choose app testing in the form.",
+      "Register your interest and we will be in touch when TradeDesk is ready, including the right invite link for your device.",
   },
 ]
 

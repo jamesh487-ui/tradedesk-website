@@ -6,34 +6,10 @@ const initialForm = {
   fullName: "",
   email: "",
   businessName: "",
-  selectedPlan: "not_sure",
-  interestType: "software",
+  phoneNumber: "",
+  devicePlatform: "",
   message: "",
 }
-
-const planOptions = [
-  { value: "not_sure", label: "Not sure yet" },
-  { value: "free", label: "Free" },
-  { value: "starter", label: "Starter" },
-  { value: "pro", label: "Pro" },
-  { value: "premium", label: "Premium" },
-]
-
-const interestTypeDatabaseValue = {
-  software: "software",
-  tester: "software",
-  updates: "software",
-}
-
-const interestTypeLabel = {
-  software: "Early access",
-  tester: "App testing with free setup and support",
-  updates: "Launch updates",
-}
-
-const planLabel = Object.fromEntries(
-  planOptions.map((plan) => [plan.value, plan.label]),
-)
 
 export default function CTA() {
   const [form, setForm] = useState(initialForm)
@@ -50,13 +26,9 @@ export default function CTA() {
   useEffect(() => {
     function handlePlanInterest(event) {
       const selectedPlan = String(event.detail?.plan || "").trim()
-      if (!planLabel[selectedPlan]) return
+      if (!selectedPlan) return
 
-      setForm((prev) => ({
-        ...prev,
-        selectedPlan,
-        interestType: "software",
-      }))
+      setForm((prev) => ({ ...prev }))
       setIsSuccess(false)
       setAnimateSuccess(false)
       setStatus({ type: "", message: "" })
@@ -89,27 +61,14 @@ export default function CTA() {
     const fullName = form.fullName.trim()
     const email = form.email.trim()
     const businessName = form.businessName.trim()
-    const selectedPlan = form.selectedPlan
-    const interestType = form.interestType
+    const phoneNumber = form.phoneNumber.trim()
+    const devicePlatform = form.devicePlatform.trim()
     const message = form.message.trim()
-    const databaseInterestType =
-      interestTypeDatabaseValue[interestType] ?? "software"
-    const selectedPlanLabel = planLabel[selectedPlan] ?? "Not sure yet"
-    const enrichedMessage =
-      [
-        `Selected plan: ${selectedPlanLabel}`,
-        interestType === "software"
-          ? null
-          : `Selected interest: ${interestTypeLabel[interestType]}`,
-        message,
-      ]
-        .filter(Boolean)
-        .join("\n\n")
 
-    if (!fullName || !email || !interestType) {
+    if (!fullName || !email || !devicePlatform) {
       setStatus({
         type: "error",
-        message: "Please complete your name, email and interest type.",
+        message: "Please complete your name, email and phone or operating system.",
       })
       return
     }
@@ -121,10 +80,9 @@ export default function CTA() {
         full_name: fullName,
         email,
         business_name: businessName || null,
-        interest_type: databaseInterestType,
-        selected_plan: selectedPlan,
-        selected_plan_label: selectedPlanLabel,
-        message: enrichedMessage || null,
+        phone_number: phoneNumber || null,
+        device_platform: devicePlatform,
+        message: message || null,
       }
 
       const { data, error } = await supabase.functions.invoke(
@@ -162,10 +120,9 @@ export default function CTA() {
             full_name: fullName,
             email,
             business_name: businessName || null,
-            interest_type: databaseInterestType,
-            selected_plan: selectedPlan,
-            selected_plan_label: selectedPlanLabel,
-            message: enrichedMessage || null,
+            phone_number: phoneNumber || null,
+            device_platform: devicePlatform,
+            message: message || null,
           })
 
         if (insertError) throw insertError
@@ -178,7 +135,7 @@ export default function CTA() {
       setStatus({
         type: "success",
         message:
-          "Thanks - your interest has been registered. We will be in touch when TradeDesk is ready.",
+          "Thanks - your interest has been registered. We will be in touch soon.",
       })
     } catch (error) {
       console.error("SUBMIT ERROR:", error)
@@ -191,7 +148,7 @@ export default function CTA() {
         setStatus({
           type: "success",
           message:
-            "You're already on the list. We will contact you when TradeDesk opens early access.",
+            "You're already on the list. We will be in touch soon.",
         })
       } else {
         setIsSuccess(false)
@@ -206,29 +163,28 @@ export default function CTA() {
   }
 
   return (
-    <section id="register" className="bg-slate-50 px-4 py-14 sm:px-6 sm:py-20">
+    <section id="register" className="scroll-mt-24 bg-slate-50 px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-6xl rounded-[2rem] bg-[#07162f] px-5 py-8 text-white shadow-2xl shadow-slate-300/30 sm:rounded-[2.2rem] sm:px-8 sm:py-14">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">
-              Beta testing
+              Register your interest
             </p>
 
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Test TradeDesk before launch
+              Be one of the first to try TradeDesk
             </h2>
 
             <p className="mt-4 text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              We are inviting a small number of trade and field-service
-              businesses to try the app, give feedback and help shape the
-              launch version.
+              Register your interest to get early access to TradeDesk and hear
+              when it is ready to use in your business.
             </p>
 
             <div className="mt-6 grid gap-3 text-sm text-slate-200 sm:grid-cols-3">
               {[
                 "Early access to the app",
-                "Free setup support",
-                "Direct feedback into the roadmap",
+                "Simple setup support",
+                "Launch updates",
               ].map((benefit) => (
                 <div
                   key={benefit}
@@ -239,36 +195,9 @@ export default function CTA() {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <button
-                type="button"
-                onClick={() => setForm((prev) => ({ ...prev, interestType: "software" }))}
-                className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
-                  form.interestType === "software"
-                    ? "bg-white text-slate-900"
-                    : "border border-slate-600 text-white hover:bg-slate-800"
-                }`}
-              >
-                Join early access
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setForm((prev) => ({ ...prev, interestType: "tester" }))}
-                className={`rounded-2xl px-4 py-2 text-sm font-semibold transition ${
-                  form.interestType === "tester"
-                    ? "bg-cyan-300 text-slate-950"
-                    : "border border-slate-600 text-white hover:bg-slate-800"
-                }`}
-              >
-                Join tester list
-              </button>
-            </div>
-
             <p className="mt-6 max-w-xl text-sm leading-7 text-slate-400">
-              Early testing is open to trade businesses that want to help shape
-              a more organised way to manage jobs, customers, quotes and
-              invoices.
+              TradeDesk is built for trade businesses that want a more
+              organised way to manage jobs, customers, quotes and invoices.
             </p>
           </div>
 
@@ -316,8 +245,8 @@ export default function CTA() {
                       : "translate-y-2 opacity-0"
                   }`}
                 >
-                  We will email you when TradeDesk is ready for early access,
-                  product updates and tester invites.
+                  We will contact you when TradeDesk is ready and use your
+                  device details to send the right invite link.
                 </p>
 
                 <button
@@ -399,43 +328,42 @@ export default function CTA() {
 
                 <div>
                   <label
-                    htmlFor="selectedPlan"
+                    htmlFor="phoneNumber"
                     className="mb-2 block text-sm font-medium text-slate-200"
                   >
-                    Plan you are interested in
+                    Phone number
                   </label>
-                  <select
-                    id="selectedPlan"
-                    name="selectedPlan"
-                    value={form.selectedPlan}
+                  <input
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    type="tel"
+                    value={form.phoneNumber}
                     onChange={updateField}
                     className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-cyan-400"
-                  >
-                    {planOptions.map((plan) => (
-                      <option key={plan.value} value={plan.value}>
-                        {plan.label}
-                      </option>
-                    ))}
-                  </select>
+                    placeholder="07..."
+                  />
                 </div>
 
                 <div>
                   <label
-                    htmlFor="interestType"
+                    htmlFor="devicePlatform"
                     className="mb-2 block text-sm font-medium text-slate-200"
                   >
-                    I want to hear about
+                    Phone / operating system
                   </label>
                   <select
-                    id="interestType"
-                    name="interestType"
-                    value={form.interestType}
+                    id="devicePlatform"
+                    name="devicePlatform"
+                    value={form.devicePlatform}
                     onChange={updateField}
                     className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none focus:border-cyan-400"
                   >
-                    <option value="software">Early access</option>
-                    <option value="tester">App testing - free setup and support</option>
-                    <option value="updates">Launch updates</option>
+                    <option value="">Select your device</option>
+                    <option value="iphone_ios">iPhone (iOS)</option>
+                    <option value="ipad_ipados">iPad (iPadOS)</option>
+                    <option value="android_phone">Android phone</option>
+                    <option value="android_tablet">Android tablet</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
 
@@ -453,7 +381,7 @@ export default function CTA() {
                     value={form.message}
                     onChange={updateField}
                     className="w-full rounded-2xl border border-slate-600 bg-slate-900 px-4 py-3 text-white outline-none placeholder:text-slate-500 focus:border-cyan-400"
-                    placeholder="Tell us a bit about your business or what you would want to test."
+                    placeholder="Anything useful for us to know?"
                   />
                 </div>
 
@@ -462,17 +390,12 @@ export default function CTA() {
                   disabled={isSubmitting}
                   className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {isSubmitting
-                    ? "Submitting..."
-                    : form.interestType === "tester"
-                      ? "Join tester list"
-                      : "Register interest"}
+                  {isSubmitting ? "Submitting..." : "Register interest"}
                 </button>
 
                 <p className="text-xs leading-relaxed text-slate-400">
                   By registering, you agree to be contacted about TradeDesk
-                  early access, tester invites and launch updates. You can
-                  unsubscribe at any time. See our{" "}
+                  and launch updates. You can unsubscribe at any time. See our{" "}
                   <Link to="/privacy" className="text-cyan-300 hover:underline">
                     Privacy Policy
                   </Link>

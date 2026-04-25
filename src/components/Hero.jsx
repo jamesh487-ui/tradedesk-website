@@ -25,7 +25,7 @@ function DesktopHero({ scrollToId }) {
       <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
         <div className="td-reveal max-w-2xl">
           <p className="inline-flex rounded-full border border-cyan-200/20 bg-white/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-cyan-100">
-            Register your interest for testing
+            Register your interest
           </p>
 
           <h1 className="mt-6 text-6xl font-black leading-[0.95] tracking-[-0.055em] text-white xl:text-7xl">
@@ -43,7 +43,7 @@ function DesktopHero({ scrollToId }) {
               onClick={() => scrollToId("register")}
               className="rounded-2xl bg-white px-6 py-3 text-sm font-black text-[#07162f] shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-cyan-50"
             >
-              Join the tester list
+              Register your interest
             </button>
 
             <Link
@@ -66,7 +66,7 @@ function MobileHero({ scrollToId }) {
     <div className="relative mx-auto px-4 pb-12 pt-7 lg:hidden">
       <div className="td-reveal">
         <p className="inline-flex rounded-full border border-cyan-200/20 bg-white/10 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.18em] text-cyan-100">
-          Register your interest for testing
+          Register your interest
         </p>
 
         <h1 className="mt-5 max-w-[24rem] text-4xl font-black leading-[0.95] tracking-[-0.05em] text-white sm:text-5xl">
@@ -84,7 +84,7 @@ function MobileHero({ scrollToId }) {
             onClick={() => scrollToId("register")}
             className="rounded-2xl bg-white px-4 py-3 text-sm font-black text-[#07162f] shadow-xl shadow-slate-950/20"
           >
-            Join the tester list
+            Register your interest
           </button>
 
           <Link

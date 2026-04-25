@@ -13,8 +13,8 @@ export default function Contact() {
         </h1>
 
         <p className="mb-8 leading-relaxed text-slate-600">
-          If you have any questions about TradeDesk, the product or early
-          access, feel free to get in touch.
+          If you have any questions about TradeDesk or the product, feel free
+          to get in touch.
         </p>
 
         <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
@@ -42,12 +42,12 @@ export default function Contact() {
             to="/#register"
             className="inline-block rounded-md bg-sky-600 px-6 py-3 font-medium text-white transition hover:bg-sky-700"
           >
-            Get Early Access
+            Register your interest
           </Link>
         </div>
 
         <div className="mt-10 text-sm text-slate-500">
-          For early access to TradeDesk and launch updates, please use the{" "}
+          To hear when TradeDesk is ready, please use the{" "}
           <Link
             to="/#register"
             className="font-medium text-sky-600 hover:underline"
