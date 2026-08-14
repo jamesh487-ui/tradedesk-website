@@ -5,7 +5,8 @@ Marketing website for Roscoe. This is a standalone Vite/React app kept inside th
 ## Local Development
 
 ```bash
-cd /Users/jamesharrison/tradedesk-v2/projects/tradedesk-website
+git clone https://github.com/jamesh487-ui/roscoe-website.git
+cd roscoe-website
 npm install
 npm run dev
 ```
@@ -15,7 +16,7 @@ Vite will show a local URL, usually `http://localhost:5173`.
 ## Build Check
 
 ```bash
-cd /Users/jamesharrison/tradedesk-v2/projects/tradedesk-website
+cd roscoe-website
 npm run build
 ```
 
@@ -36,7 +37,7 @@ Set these same variables in Vercel under Project Settings -> Environment Variabl
 This website is already configured as a separate Git repo:
 
 ```bash
-cd /Users/jamesharrison/tradedesk-v2/projects/tradedesk-website
+cd roscoe-website
 git status
 git add .
 git commit -m "Update Roscoe website"

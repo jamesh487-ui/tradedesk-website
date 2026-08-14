@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import { hasAnalyticsConfig, loadGoogleAnalytics, loadMetaPixel, trackPageView } from "../lib/analytics"
 
-const STORAGE_KEY = "tradedesk_cookie_consent"
+const STORAGE_KEY = "roscoe_cookie_consent"
 
 function readConsent() {
   if (typeof window === "undefined") {

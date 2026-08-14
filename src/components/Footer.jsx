@@ -78,9 +78,11 @@ export default function Footer() {
                 iPhone app
               </a>
 
-              <a href={ANDROID_APP_URL} className="transition hover:text-white">
-                Android app
-              </a>
+              {ANDROID_APP_URL ? (
+                <a href={ANDROID_APP_URL} className="transition hover:text-white">
+                  Android app
+                </a>
+              ) : null}
             </div>
           </div>
 

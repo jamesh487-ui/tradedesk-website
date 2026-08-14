@@ -19,7 +19,7 @@ function GooglePlayMark() {
   )
 }
 
-function StoreButton({ href, eyebrow, label, icon: Icon }) {
+function StoreButton({ href, eyebrow, label, icon }) {
   return (
     <a
       href={href}
@@ -28,7 +28,7 @@ function StoreButton({ href, eyebrow, label, icon: Icon }) {
       className="inline-flex min-h-[58px] min-w-[178px] items-center gap-3 rounded-2xl border border-white/15 bg-black px-4 py-3 text-left text-white shadow-xl shadow-slate-950/20 transition hover:-translate-y-0.5 hover:bg-slate-950 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2 focus:ring-offset-[#07162f]"
       aria-label={`${label} ${eyebrow}`}
     >
-      <Icon />
+      {icon()}
       <span className="leading-none">
         <span className="block text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-300">
           {eyebrow}
@@ -50,12 +50,14 @@ export default function AppStoreButtons({ className = "" }) {
         label="App Store"
         icon={AppleMark}
       />
-      <StoreButton
-        href={ANDROID_APP_URL}
-        eyebrow="Get it on"
-        label="Google Play"
-        icon={GooglePlayMark}
-      />
+      {ANDROID_APP_URL ? (
+        <StoreButton
+          href={ANDROID_APP_URL}
+          eyebrow="Get it on"
+          label="Google Play"
+          icon={GooglePlayMark}
+        />
+      ) : null}
     </div>
   )
 }

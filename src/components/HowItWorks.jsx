@@ -150,7 +150,7 @@ function PhoneDemo({ recording }) {
     observer.observe(video)
 
     return () => observer.disconnect()
-  }, [recording.video])
+  }, [recording.playbackRate, recording.video])
 
   return (
     <div

@@ -4,4 +4,5 @@ export const WEB_APP_SIGNUP_URL = "/workspace-coming-soon?mode=signup"
 export const MARKETING_URL = "https://www.roscoehq.co.uk"
 export const SUPPORT_EMAIL = "admin@roscoehq.co.uk"
 export const IOS_APP_URL = "https://apps.apple.com/gb/app/roscoe/id6762569331?uo=4"
-export const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.tradedeskuk.tradedesk"
+// Enable this when the Roscoe Android listing is publicly available.
+export const ANDROID_APP_URL = ""
